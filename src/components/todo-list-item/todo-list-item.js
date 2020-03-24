@@ -10,15 +10,19 @@ export default class TodoListItem extends Component {
   };
 
   onLabelClick = () => {
-    this.setState({
-      done: true
-    })
+    this.setState(({ done }) => {
+      return {
+        done: !done
+      }
+    });
   };
 
   onMarkImportant = () => {
-    this.setState({
-      important: true
-    })
+    this.setState(({ important }) => {
+      return {
+        important: !important
+      }
+    });
   };
 
   render() {
@@ -31,7 +35,7 @@ export default class TodoListItem extends Component {
       classNames += ' done';
     }
     if (important) {
-      classNames += ' important'
+      classNames += ' important';
     }
   
     return (
